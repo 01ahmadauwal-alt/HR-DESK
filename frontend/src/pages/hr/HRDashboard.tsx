@@ -1,6 +1,5 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Users, DollarSign, Calendar, Briefcase, TrendingUp, Clock, ArrowRight } from 'lucide-react';
+import { Users, DollarSign, Calendar, Briefcase, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import DashboardLayout from '../../components/layout/DashboardLayout';

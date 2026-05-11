@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { CheckCircle, MessageSquare, Users, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle, MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import Badge from '../../components/ui/Badge';
 import EmptyState from '../../components/ui/EmptyState';
 import LoadingSpinner from '../../components/ui/LoadingSpinner';
-import Modal from '../../components/ui/Modal';
 import api from '../../api/client';
 import type { Task, Employee } from '../../types';
 import { formatDate, formatDateTime } from '../../utils/formatters';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Shield, CheckCircle, XCircle, Search, ChevronDown } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
@@ -55,11 +55,6 @@ export default function HRRoleManagement() {
       api.put(`/hr/roles/${userId}`, payload),
     onSuccess: () => qc.invalidateQueries({ queryKey: ['hr-roles'] }),
   });
-
-  const handleRoleChange = (userId: string, role: UserRole) => {
-    setPendingRole(role);
-    setEditingId(userId);
-  };
 
   const confirmRole = (userId: string) => {
     if (!pendingRole) return;

@@ -1,4 +1,3 @@
-import React from 'react';
 
 export default function LoadingSpinner({ text = 'Loading...' }: { text?: string }) {
   return (

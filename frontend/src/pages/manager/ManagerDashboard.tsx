@@ -1,6 +1,5 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Users, Calendar, Workflow, Clock, ArrowRight } from 'lucide-react';
+import { Users, Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import StatCard from '../../components/ui/StatCard';
@@ -28,7 +27,6 @@ export default function ManagerDashboard() {
 
   const onDuty = team.filter((e) => e.todayStatus === 'on_duty').length;
   const onLeave = team.filter((e) => e.todayStatus === 'on_leave').length;
-  const absent = team.filter((e) => e.todayStatus === 'absent').length;
   const activeTasks = tasks.filter((t) => t.status !== 'done' && t.status !== 'cancelled');
 
   if (isLoading) return <DashboardLayout title="Manager Dashboard"><LoadingSpinner /></DashboardLayout>;

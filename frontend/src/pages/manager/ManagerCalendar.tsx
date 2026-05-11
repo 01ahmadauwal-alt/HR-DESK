@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight, CalendarDays, Briefcase } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
@@ -21,7 +21,6 @@ const MONTHS = [
 ];
 
 function eventsBetween(events: CalendarEvent[], day: Date): CalendarEvent[] {
-  const d = day.toDateString();
   return events.filter(e => {
     const start = new Date(e.start);
     const end   = new Date(e.end);

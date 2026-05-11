@@ -1,4 +1,3 @@
-import React from 'react';
 import { STATUS_BADGE, capitalize } from '../../utils/formatters';
 
 export default function Badge({ status }: { status: string }) {

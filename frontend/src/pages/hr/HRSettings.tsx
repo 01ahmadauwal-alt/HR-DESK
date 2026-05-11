@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { Link, Hash, MessageSquare, Briefcase, Building, CreditCard, CheckCircle, XCircle } from 'lucide-react';
+import { Link, Hash, MessageSquare, Briefcase, CreditCard, CheckCircle, XCircle } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import api from '../../api/client';
 

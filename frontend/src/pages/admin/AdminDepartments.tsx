@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Building, Users } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';

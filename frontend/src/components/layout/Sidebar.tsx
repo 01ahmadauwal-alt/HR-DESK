@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Users, Calendar, Clock, FileText, TrendingUp,
-  Settings, LogOut, Briefcase, Bell, DollarSign,
+  Settings, LogOut, Briefcase, DollarSign,
   UserCheck, Building2, PieChart, Workflow, CreditCard, Banknote, ChevronRight,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';

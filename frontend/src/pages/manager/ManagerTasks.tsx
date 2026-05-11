@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { CheckSquare, Plus, Users } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { DollarSign, Play, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
@@ -7,7 +7,7 @@ import LoadingSpinner from '../../components/ui/LoadingSpinner';
 import Modal from '../../components/ui/Modal';
 import api from '../../api/client';
 import type { Payroll, Employee } from '../../types';
-import { formatNaira, getMonthName } from '../../utils/formatters';
+import { formatNaira } from '../../utils/formatters';
 
 interface PayrollRow extends Payroll {
   employeeId: Employee;
@@ -42,7 +42,6 @@ export default function PayrollManagement() {
     onError: (err: { response?: { data?: { message?: string } } }) => { setError(err.response?.data?.message ?? 'Failed to approve payroll'); setShowConfirm(null); },
   });
 
-  const hasDraft = records.some(r => r.status === 'draft');
   const allDraft = records.length > 0 && records.every(r => r.status === 'draft');
 
   const totals = records.reduce((acc, r) => ({

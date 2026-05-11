@@ -1,10 +1,8 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Calendar, Clock, DollarSign, Workflow, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import StatCard from '../../components/ui/StatCard';
-import LoadingSpinner from '../../components/ui/LoadingSpinner';
 import Badge from '../../components/ui/Badge';
 import api from '../../api/client';
 import type { LeaveBalance, LeaveRequest, Payslip, Task, Attendance } from '../../types';
