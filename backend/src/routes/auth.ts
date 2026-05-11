@@ -9,12 +9,12 @@ const router = Router();
 
 const signAccessToken = (userId: string) =>
   jwt.sign({ userId }, process.env.JWT_ACCESS_SECRET!, {
-    expiresIn: process.env.JWT_ACCESS_EXPIRY ?? '15m',
+    expiresIn: (process.env.JWT_ACCESS_EXPIRY ?? '15m') as unknown as number,
   });
 
 const signRefreshToken = (userId: string) =>
   jwt.sign({ userId }, process.env.JWT_REFRESH_SECRET!, {
-    expiresIn: process.env.JWT_REFRESH_EXPIRY ?? '7d',
+    expiresIn: (process.env.JWT_REFRESH_EXPIRY ?? '7d') as unknown as number,
   });
 
 // POST /api/auth/login
@@ -39,8 +39,8 @@ router.post('/login', async (req: Request, res: Response) => {
 
   if (!valid) throw new AppError('Invalid credentials', 401);
 
-  const accessToken = signAccessToken(user._id as string);
-  const refreshToken = signRefreshToken(user._id as string);
+  const accessToken = signAccessToken(user._id!.toString());
+  const refreshToken = signRefreshToken(user._id!.toString());
 
   user.refreshToken = refreshToken;
   await user.save({ validateBeforeSave: false });
@@ -93,7 +93,7 @@ router.post('/refresh', async (req: Request, res: Response) => {
   const user = await User.findById(payload.userId);
   if (!user || user.refreshToken !== token) throw new AppError('Invalid refresh token', 401);
 
-  const accessToken = signAccessToken(user._id as string);
+  const accessToken = signAccessToken(user._id!.toString());
   res.json({ accessToken });
 });
 

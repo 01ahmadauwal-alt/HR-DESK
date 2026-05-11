@@ -185,7 +185,7 @@ router.post('/tasks/:id/complete', ...guard, async (req: AuthRequest, res: Respo
   const assignedByUser = await (await import('../models/User')).default.findById(assignedBy.userId);
   if (assignedByUser) {
     await sendNotification({
-      userId: (assignedByUser._id as string).toString(),
+      userId: assignedByUser._id!.toString(),
       type: 'task_completed',
       title: 'Task Completed',
       message: `${emp.firstName} ${emp.lastName} has marked the task "${task.title}" as complete.`,
@@ -386,7 +386,7 @@ router.get('/documents/:id/download', ...guard, async (req: AuthRequest, res: Re
   const doc = await Document.findById(req.params.id);
   if (!doc) throw new AppError('Document not found', 404);
   const emp = await Employee.findOne({ userId: req.user!._id });
-  if (!emp || doc.employeeId.toString() !== (emp._id as string).toString()) throw new AppError('Forbidden', 403);
+  if (!emp || doc.employeeId.toString() !== emp._id!.toString()) throw new AppError('Forbidden', 403);
   if (!fs.existsSync(doc.filePath)) throw new AppError('File not found on server', 404);
   res.download(doc.filePath, doc.fileName);
 });

@@ -94,7 +94,7 @@ router.put('/leaves/:id/approve', ...guard, async (req: AuthRequest, res: Respon
   for (const hr of hrUsers) {
     const empDoc = leave.employeeId as unknown as { firstName: string; lastName: string };
     await sendNotification({
-      userId: (hr._id as string).toString(),
+      userId: hr._id!.toString(),
       type: 'leave_manager_approved',
       title: 'Leave Request Needs HR Approval',
       message: `${empDoc.firstName} ${empDoc.lastName}'s ${leave.type} leave request has been approved by the manager and requires your review.`,

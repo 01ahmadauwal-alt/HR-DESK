@@ -129,7 +129,7 @@ export function calculatePayroll(
   const netPay = round(grossSalary - totalDeductions);
 
   return {
-    employeeId: (employee._id as string).toString(),
+    employeeId: employee._id!.toString(),
     basicSalary: basic,
     housingAllowance: housing,
     transportAllowance: transport,

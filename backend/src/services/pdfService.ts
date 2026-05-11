@@ -25,7 +25,7 @@ export async function generatePayslipPdf(
   employee: IEmployee,
   outputDir: string
 ): Promise<string> {
-  const fileName = `payslip_${(employee._id as string).toString()}_${payroll.year}_${String(payroll.month).padStart(2, '0')}.pdf`;
+  const fileName = `payslip_${employee._id!.toString()}_${payroll.year}_${String(payroll.month).padStart(2, '0')}.pdf`;
   const filePath = path.join(outputDir, fileName);
 
   fs.mkdirSync(outputDir, { recursive: true });
@@ -63,7 +63,7 @@ export async function generatePayslipPdf(
       ['Basic Salary', formatNaira(payroll.basicSalary)],
       ['Housing Allowance', formatNaira(payroll.housingAllowance)],
       ['Transport Allowance', formatNaira(payroll.transportAllowance)],
-      ...payroll.otherAllowances.map((a) => [a.name, formatNaira(a.amount)]),
+      ...payroll.otherAllowances.map((a): [string, string] => [a.name, formatNaira(a.amount)]),
     ], formatNaira(payroll.grossSalary), 'Gross Pay');
 
     y += 12;

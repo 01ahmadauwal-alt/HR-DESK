@@ -148,7 +148,7 @@ router.put('/leaves/:id/approve', ...guard, async (req: AuthRequest, res: Respon
   if (balance) {
     const field = `used${leave.type.charAt(0).toUpperCase() + leave.type.slice(1)}` as keyof typeof balance;
     if (typeof balance[field] === 'number') {
-      (balance as Record<string, unknown>)[field as string] = (balance[field] as number) + leave.days;
+      (balance as unknown as Record<string, unknown>)[field as string] = (balance[field] as number) + leave.days;
       await balance.save();
     }
   }
@@ -265,7 +265,6 @@ router.post('/payroll/process', ...guard, async (req: AuthRequest, res: Response
     );
 
     const payroll = await Payroll.create({
-      employeeId: emp._id,
       month,
       year,
       ...result,
@@ -290,7 +289,7 @@ router.put('/payroll/:id/approve', ...guard, async (req: AuthRequest, res: Respo
   const emp = payroll.employeeId as unknown as { _id: string };
   const employee = await Employee.findById(emp._id);
   if (employee) {
-    const uploadDir = path.join(process.env.UPLOAD_DIR ?? 'uploads', 'payslips', (employee._id as string).toString());
+    const uploadDir = path.join(process.env.UPLOAD_DIR ?? 'uploads', 'payslips', employee._id!.toString());
     const pdfPath = await generatePayslipPdf(payroll, employee, uploadDir);
 
     await Payslip.create({
@@ -302,7 +301,7 @@ router.put('/payroll/:id/approve', ...guard, async (req: AuthRequest, res: Respo
     const empUser = await User.findById(employee.userId);
     if (empUser) {
       await sendNotification({
-        userId: (empUser._id as string).toString(),
+        userId: empUser._id!.toString(),
         type: 'payslip_ready',
         title: 'Your Payslip is Ready',
         message: `Your payslip for ${new Date(payroll.year, payroll.month - 1).toLocaleString('en-NG', { month: 'long', year: 'numeric' })} is now available for download.`,

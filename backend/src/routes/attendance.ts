@@ -95,16 +95,20 @@ router.post('/devices/:id/sync', ...adminGuard, async (req: AuthRequest, res: Re
       timeout: 10000,
     });
 
-    const records = response.data?.records ?? response.data ?? [];
+    const responseBody = response.data as { records?: unknown[] } | unknown[];
+    const records: unknown[] = Array.isArray(responseBody)
+      ? responseBody
+      : (responseBody as { records?: unknown[] }).records ?? [];
     let imported = 0;
 
-    for (const record of records) {
+    for (const rawRecord of records) {
+      const record = rawRecord as { userId?: string; employeeId?: string; checkIn?: string; checkOut?: string; date?: string };
       const emp = await Employee.findOne({ thumbprintId: record.userId ?? record.employeeId });
       if (!emp) continue;
 
       const checkIn = record.checkIn ? new Date(record.checkIn) : undefined;
       const checkOut = record.checkOut ? new Date(record.checkOut) : undefined;
-      const date = checkIn ?? new Date(record.date);
+      const date = checkIn ?? new Date(record.date ?? new Date());
       date.setHours(0, 0, 0, 0);
 
       const lateThreshold = new Date(date);

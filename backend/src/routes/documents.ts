@@ -28,7 +28,7 @@ router.post('/upload', authenticate, upload.single('file'), async (req: AuthRequ
   if (req.user!.role === 'employee') {
     const emp = await Employee.findOne({ userId: req.user!._id });
     if (!emp) throw new AppError('Employee not found', 404);
-    empId = (emp._id as string).toString();
+    empId = emp._id!.toString();
   }
 
   const doc = await Document.create({
@@ -72,7 +72,7 @@ router.delete('/:id', authenticate, async (req: AuthRequest, res: Response) => {
 
   if (req.user!.role === 'employee') {
     const emp = await Employee.findOne({ userId: req.user!._id });
-    if (!emp || doc.employeeId.toString() !== (emp._id as string).toString()) {
+    if (!emp || doc.employeeId.toString() !== emp._id!.toString()) {
       throw new AppError('Forbidden', 403);
     }
   }
