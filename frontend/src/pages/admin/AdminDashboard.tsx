@@ -37,7 +37,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* KPI cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {stats.map(s => (
             <div key={s.label} className="card p-4">
               <div className="flex items-center justify-between">
@@ -73,14 +73,14 @@ export default function AdminDashboard() {
         {deptData.length > 0 && (
           <div>
             <h3 className="section-title mb-3">Departments</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {deptData.map(dept => (
                 <div key={dept.name} className="card p-4">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="font-semibold text-slate-800">{dept.name}</h4>
                     <span className="text-xs bg-primary-50 text-primary rounded-full px-2 py-0.5">{dept.count} employees</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     <div className="bg-success-50 rounded-lg p-2 text-center">
                       <p className="font-bold text-success-700 text-lg">{dept.onDuty ?? 0}</p>
                       <p className="text-success-600">On Duty</p>

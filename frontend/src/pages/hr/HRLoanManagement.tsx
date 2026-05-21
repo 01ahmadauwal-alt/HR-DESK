@@ -81,7 +81,7 @@ function AdvanceActionModal({ advance, action, onClose }: { advance: SalaryAdvan
           </div>
         )}
         {action === 'approve' && (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="label">Deduct Month</label>
               <select className="input" value={deductMonth} onChange={e => setDeductMonth(Number(e.target.value))}>

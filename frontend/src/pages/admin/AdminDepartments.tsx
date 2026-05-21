@@ -33,7 +33,7 @@ export default function AdminDepartments() {
         </div>
 
         {/* Summary */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { label: 'Total Departments', value: departments.length },
             { label: 'Total Headcount', value: departments.reduce((a, d) => a + d.headcount, 0) },
@@ -68,7 +68,7 @@ export default function AdminDepartments() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                   <div className="bg-success-50 rounded-lg p-2.5 text-center">
                     <p className="text-xl font-bold text-success-700">{dept.onDuty}</p>
                     <p className="text-xs text-success-600">On Duty</p>

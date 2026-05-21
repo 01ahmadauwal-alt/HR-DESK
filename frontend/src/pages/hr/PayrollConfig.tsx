@@ -71,7 +71,7 @@ export default function PayrollConfig() {
             <div className="card-header"><h3 className="font-semibold">PAYE Tax Brackets (Annual Taxable Income)</h3></div>
             <div className="card-body space-y-3">
               {config.taxBrackets?.map((b, i) => (
-                <div key={i} className="grid grid-cols-3 gap-3 items-center">
+                <div key={i} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-center">
                   <div>
                     <label className="label">Min (₦)</label>
                     <input className="input" type="number" value={b.min} onChange={e => updateBracket(i, 'min', e.target.value)} />
@@ -95,7 +95,7 @@ export default function PayrollConfig() {
         {tab === 'pension' && (
           <div className="card">
             <div className="card-header"><h3 className="font-semibold">Pension & Statutory Rates</h3></div>
-            <div className="card-body grid grid-cols-2 gap-4">
+            <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="label">Pension Employee Rate (%)</label>
                 <input className="input" type="number" step="0.1" value={config.pensionEmployeeRate ?? ''} onChange={e => setConfig(c => ({ ...c, pensionEmployeeRate: Number(e.target.value) }))} />
@@ -198,7 +198,7 @@ export default function PayrollConfig() {
                 <p className="text-sm text-slate-400 text-center py-4">No custom deductions. Click "Add" to create one.</p>
               ) : (
                 (config.deductions ?? []).map((d, i) => (
-                  <div key={i} className="border border-slate-200 rounded-lg p-3 grid grid-cols-2 gap-3 relative">
+                  <div key={i} className="border border-slate-200 rounded-lg p-3 grid grid-cols-1 sm:grid-cols-2 gap-3 relative">
                     <button onClick={() => removeCustomDeduction(i)} className="absolute top-2 right-2 text-slate-400 hover:text-danger-500">
                       <Trash2 size={14} />
                     </button>

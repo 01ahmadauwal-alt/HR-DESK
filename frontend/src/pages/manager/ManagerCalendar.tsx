@@ -67,7 +67,7 @@ export default function ManagerCalendar() {
     <DashboardLayout title="Team Calendar">
       <div className="space-y-5">
         {/* Summary */}
-        <div className="grid grid-cols-2 gap-4 max-w-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xs">
           <div className="card">
             <div className="card-body py-3 flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
@@ -92,7 +92,7 @@ export default function ManagerCalendar() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Calendar */}
           <div className="lg:col-span-2 card">
             <div className="card-body">

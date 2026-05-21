@@ -34,7 +34,7 @@ function CreateJobModal({ open, onClose }: { open: boolean; onClose: () => void 
           <label className="label">Job Title</label>
           <input className="input" value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="label">Type</label>
             <select className="input" value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))}>

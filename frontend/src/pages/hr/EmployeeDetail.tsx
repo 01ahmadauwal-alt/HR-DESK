@@ -104,7 +104,7 @@ export default function EmployeeDetail() {
             {/* Employment */}
             <div className="card">
               <div className="card-header"><div className="flex items-center gap-2"><User size={16} className="text-primary" /><h3 className="font-semibold">Employment</h3></div></div>
-              <div className="card-body grid grid-cols-2 gap-4">
+              <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Email" value={emp.email} />
                 <Field label="Phone" value={editing ? undefined : emp.phone} />
                 {editing && (
@@ -129,7 +129,7 @@ export default function EmployeeDetail() {
             {/* Salary */}
             <div className="card">
               <div className="card-header"><div className="flex items-center gap-2"><DollarSign size={16} className="text-primary" /><h3 className="font-semibold">Salary</h3></div></div>
-              <div className="card-body grid grid-cols-2 gap-4">
+              <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {editing ? (
                   <>
                     <div>
@@ -159,7 +159,7 @@ export default function EmployeeDetail() {
             {/* Bank */}
             <div className="card">
               <div className="card-header"><div className="flex items-center gap-2"><CreditCard size={16} className="text-primary" /><h3 className="font-semibold">Bank Details</h3></div></div>
-              <div className="card-body grid grid-cols-2 gap-4">
+              <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Bank Name" value={emp.bankAccount?.bankName} />
                 <Field label="Account Number" value={emp.bankAccount?.accountNumber} />
                 <Field label="Account Name" value={emp.bankAccount?.accountName} />
@@ -169,7 +169,7 @@ export default function EmployeeDetail() {
             {/* Pension */}
             <div className="card">
               <div className="card-header"><div className="flex items-center gap-2"><Shield size={16} className="text-primary" /><h3 className="font-semibold">Pension</h3></div></div>
-              <div className="card-body grid grid-cols-2 gap-4">
+              <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="PFA Name" value={emp.pension?.pfaName} />
                 <Field label="RSA PIN" value={emp.pension?.rsaPin} />
               </div>

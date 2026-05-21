@@ -52,7 +52,7 @@ function ApplyModal({ job, onClose }: { job: Job; onClose: () => void }) {
         </div>
         <form onSubmit={e => { e.preventDefault(); setError(''); mutation.mutate(); }} className="p-6 space-y-4">
           {error && <div className="bg-danger-50 text-danger-700 rounded-lg px-3 py-2 text-sm">{error}</div>}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="label">First Name</label>
               <input className="input" value={form.firstName} onChange={f('firstName')} required />

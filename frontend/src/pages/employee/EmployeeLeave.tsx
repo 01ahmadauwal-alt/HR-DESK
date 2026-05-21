@@ -44,7 +44,7 @@ function ApplyModal({ open, onClose }: { open: boolean; onClose: () => void }) {
             {LEAVE_TYPES.map((t) => <option key={t} value={t}>{LEAVE_TYPE_LABELS[t]}</option>)}
           </select>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="label">Start Date</label>
             <input className="input" type="date" value={form.startDate} onChange={(e) => setForm({ ...form, startDate: e.target.value })} required />
@@ -93,7 +93,7 @@ export default function EmployeeLeave() {
     <DashboardLayout title="My Leave">
       <div className="space-y-6">
         {/* Leave balance cards */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {balanceItems.map((b) => (
             <div key={b.label} className="card p-4">
               <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">{b.label} Leave</p>

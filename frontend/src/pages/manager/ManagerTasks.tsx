@@ -39,7 +39,7 @@ function CreateTaskModal({ open, onClose, team }: { open: boolean; onClose: () =
           <label className="label">Description</label>
           <textarea className="input resize-none" rows={3} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="label">Due Date</label>
             <input className="input" type="date" value={form.dueDate} onChange={e => setForm(f => ({ ...f, dueDate: e.target.value }))} required />

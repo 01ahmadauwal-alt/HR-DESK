@@ -43,7 +43,7 @@ export default function EmployeeAttendance() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[
             { label: 'Present', value: stats.present, cls: 'text-success-700 bg-success-50' },
             { label: 'Late', value: stats.late, cls: 'text-warning-600 bg-warning-50' },

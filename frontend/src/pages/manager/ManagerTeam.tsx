@@ -42,7 +42,7 @@ export default function ManagerTeam() {
     <DashboardLayout title="My Team">
       <div className="space-y-6">
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[
             { label: 'Total', value: stats.total, cls: 'text-primary bg-primary-50' },
             { label: 'On Duty', value: stats.onDuty, cls: 'text-success-700 bg-success-50' },
@@ -71,7 +71,7 @@ export default function ManagerTeam() {
         {isLoading ? <LoadingSpinner /> : filtered.length === 0 ? (
           <div className="card"><EmptyState icon={Users} title="No team members" description="Your team members will appear here." /></div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map(m => (
               <div key={m._id} className="card p-4">
                 <div className="flex items-start gap-3">
@@ -85,7 +85,7 @@ export default function ManagerTeam() {
                   </div>
                   <StatusBadge status={m.todayStatus} />
                 </div>
-                <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-xs text-slate-500">
+                <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-500">
                   <div>
                     <span className="text-slate-400">Email</span>
                     <p className="truncate">{m.email}</p>

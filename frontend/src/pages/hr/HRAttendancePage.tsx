@@ -37,7 +37,7 @@ function AddDeviceModal({ open, onClose }: { open: boolean; onClose: () => void 
     <Modal open={open} onClose={onClose} title="Add Attendance Device" size="lg">
       <form onSubmit={e => { e.preventDefault(); setError(''); mutation.mutate(); }} className="space-y-4">
         {error && <div className="bg-danger-50 text-danger-700 rounded-lg px-3 py-2 text-sm">{error}</div>}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="label">Device Name</label>
             <input className="input" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} required />
@@ -56,7 +56,7 @@ function AddDeviceModal({ open, onClose }: { open: boolean; onClose: () => void 
           <label className="label">API Endpoint</label>
           <input className="input" type="url" value={form.apiEndpoint} onChange={e => setForm(f => ({ ...f, apiEndpoint: e.target.value }))} placeholder="https://device.example.com/api/logs" required />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="label">API Key</label>
             <input className="input" value={form.apiKey} onChange={e => setForm(f => ({ ...f, apiKey: e.target.value }))} />
@@ -227,7 +227,7 @@ export default function HRAttendancePage() {
                   {['present', 'absent', 'late', 'half_day', 'on_leave'].map(s => <option key={s} value={s}>{s.replace('_', ' ')}</option>)}
                 </select>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="label">Check In</label>
                   <input className="input" type="time" value={manualForm.checkIn} onChange={e => setManualForm(f => ({ ...f, checkIn: e.target.value }))} />

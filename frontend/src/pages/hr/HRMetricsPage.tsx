@@ -45,7 +45,7 @@ export default function HRMetricsPage() {
     <DashboardLayout title="HR Metrics">
       <div className="space-y-6">
         {/* KPI cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {stats.map(s => (
             <div key={s.label} className="card p-4">
               <div className="flex items-center justify-between">
@@ -67,7 +67,7 @@ export default function HRMetricsPage() {
             <div className="card-header">
               <h3 className="font-semibold text-slate-800">Last Payroll Run</h3>
             </div>
-            <div className="card-body grid grid-cols-3 gap-6">
+            <div className="card-body grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div>
                 <p className="text-xs text-slate-400 uppercase tracking-wide">Total Gross</p>
                 <p className="text-xl font-bold text-slate-800 mt-1">{formatNaira(metrics.payroll.totalGross)}</p>

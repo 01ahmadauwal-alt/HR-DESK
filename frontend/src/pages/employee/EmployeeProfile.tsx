@@ -134,7 +134,7 @@ export default function EmployeeProfile() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Employee ID" value={emp.employeeId} />
                 <Field label="Employment Type" value={emp.employmentType?.replace('_', ' ')} />
                 <Field label="Email" value={emp.email} />
@@ -149,7 +149,7 @@ export default function EmployeeProfile() {
           {/* Address */}
           <Section title="Address" icon={MapPin}>
             {editing ? (
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="col-span-2">
                   <label className="label">Street</label>
                   <input className="input" value={form.street} onChange={f('street')} />
@@ -168,7 +168,7 @@ export default function EmployeeProfile() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Street" value={emp.address?.street} />
                 <Field label="City" value={emp.address?.city} />
                 <Field label="State" value={emp.address?.state} />
@@ -195,7 +195,7 @@ export default function EmployeeProfile() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Name" value={emp.emergencyContact?.name} />
                 <Field label="Relationship" value={emp.emergencyContact?.relationship} />
                 <Field label="Phone" value={emp.emergencyContact?.phone} />
@@ -221,7 +221,7 @@ export default function EmployeeProfile() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Bank Name" value={emp.bankAccount?.bankName} />
                 <Field label="Account Number" value={emp.bankAccount?.accountNumber} />
                 <Field label="Account Name" value={emp.bankAccount?.accountName} />
@@ -243,7 +243,7 @@ export default function EmployeeProfile() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="PFA Name" value={emp.pension?.pfaName} />
                 <Field label="RSA PIN" value={emp.pension?.rsaPin} />
               </div>

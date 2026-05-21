@@ -149,7 +149,11 @@ const roleLabel: Record<string, string> = {
   super_admin: 'Administrator',
 };
 
-export default function Sidebar() {
+interface SidebarProps {
+  open?: boolean;
+}
+
+export default function Sidebar({ open = false }: SidebarProps) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const groups = user ? (groupMap[user.role] ?? employeeGroups) : [];
@@ -170,7 +174,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="fixed inset-y-0 left-0 w-60 flex flex-col z-30 select-none"
+      className={`fixed md:relative inset-y-0 left-0 w-60 flex flex-col z-30 select-none transition-transform duration-200 md:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full md:translate-x-0'} md:z-20`}
       style={{ background: 'linear-gradient(180deg, #0F172A 0%, #0d1525 100%)' }}
     >
       {/* ── Logo ───────────────────────────────────── */}

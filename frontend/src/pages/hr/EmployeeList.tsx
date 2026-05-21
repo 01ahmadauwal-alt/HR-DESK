@@ -67,7 +67,7 @@ function AddEmployeeModal({ open, onClose }: { open: boolean; onClose: () => voi
     <Modal open={open} onClose={onClose} title="Add New Employee" size="xl">
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && <div className="bg-danger-50 text-danger-700 rounded-lg px-4 py-2 text-sm">{error}</div>}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div><label className="label">First Name *</label><input className="input" value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} required /></div>
           <div><label className="label">Last Name *</label><input className="input" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} required /></div>
           <div><label className="label">Email *</label><input className="input" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required /></div>

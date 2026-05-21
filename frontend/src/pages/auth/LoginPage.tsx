@@ -57,7 +57,7 @@ export default function LoginPage() {
           <p className="text-slate-400 mt-4 text-lg leading-relaxed">
             Manage payroll, leave, attendance, recruitment and more — all in one place.
           </p>
-          <div className="grid grid-cols-2 gap-4 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
             {['Payroll', 'Leave', 'Attendance', 'Recruitment'].map((f) => (
               <div key={f} className="bg-white/5 rounded-xl px-4 py-3 border border-white/10">
                 <p className="text-white text-sm font-medium">{f}</p>

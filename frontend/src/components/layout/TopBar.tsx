@@ -27,7 +27,7 @@ function NotificationPanel({ onClose }: { onClose: () => void }) {
   const unread = notifications.filter(n => !n.read);
 
   return (
-    <div className="absolute right-0 top-[calc(100%+8px)] w-96 bg-white rounded-xl ring-1 ring-slate-900/10 shadow-float z-50 overflow-hidden animate-slide-up">
+    <div className="absolute right-0 top-[calc(100%+8px)] w-80 sm:w-96 bg-white rounded-xl ring-1 ring-slate-900/10 shadow-float z-50 overflow-hidden animate-slide-up">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
         <div className="flex items-center gap-2">
@@ -128,10 +128,10 @@ export default function TopBar({ title }: { title?: string }) {
     : user?.email?.split('@')[0] ?? '';
 
   return (
-    <header className="fixed top-0 left-60 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-slate-200/80 flex items-center justify-between px-6 z-20">
+    <header className="fixed top-0 left-0 right-0 md:left-60 h-16 bg-white/95 backdrop-blur-sm border-b border-slate-200/80 flex items-center justify-between px-4 md:px-6 z-20">
       {/* Left — page title */}
-      <div>
-        {title && <h1 className="page-title">{title}</h1>}
+      <div className="ml-12 md:ml-0">
+        {title && <h1 className="page-title text-sm md:text-base">{title}</h1>}
       </div>
 
       {/* Right — actions */}

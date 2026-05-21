@@ -49,7 +49,7 @@ export default function HRDashboard() {
     <DashboardLayout title="HR Dashboard">
       <div className="space-y-6">
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <StatCard
             title="Total Employees"
             value={metrics?.totalEmployees ?? 0}
@@ -84,7 +84,7 @@ export default function HRDashboard() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Department headcount */}
           <div className="card lg:col-span-2">
             <div className="card-header">

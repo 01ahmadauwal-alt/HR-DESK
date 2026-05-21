@@ -35,7 +35,7 @@ export default function ManagerDashboard() {
     <DashboardLayout title="Manager Dashboard">
       <div className="space-y-6">
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <StatCard title="Total Team" value={team.length} icon={Users} iconBg="bg-primary-50" iconColor="text-primary" />
           <StatCard title="On Duty Today" value={onDuty} icon={Clock} iconBg="bg-success-50" iconColor="text-success" />
           <StatCard title="On Leave" value={onLeave} icon={Calendar} iconBg="bg-warning-50" iconColor="text-warning" />

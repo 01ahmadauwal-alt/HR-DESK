@@ -82,7 +82,7 @@ export default function HRRoleManagement() {
     <DashboardLayout title="Role Management">
       <div className="space-y-6">
         {/* Summary cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {roleCounts.map(({ role, count }) => (
             <div key={role} className="card">
               <div className="card-body py-4">
