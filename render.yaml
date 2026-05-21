@@ -22,6 +22,8 @@ services:
         value: 7d
       - key: FRONTEND_URL
         sync: false
+        # Set this to your frontend Render URL (e.g., https://hr-desk-qaz1.onrender.com)
+        # WITHOUT any path suffix - CORS only accepts scheme + domain
       - key: SMTP_HOST
         value: smtp.gmail.com
       - key: SMTP_PORT
